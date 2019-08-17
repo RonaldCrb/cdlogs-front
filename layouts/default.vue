@@ -43,7 +43,9 @@
       :fixed="fixed"
       app
     >
-      <span>&copy; 2019</span>
+    <v-row justify="center">
+      <span>Ron Alonzo &copy; 2019</span>
+    </v-row>
     </v-footer>
   </v-app>
 </template>
