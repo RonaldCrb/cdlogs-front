@@ -3,9 +3,10 @@
     <v-container>
       <v-row justify="center">
         <h1 class="text-xs-center">Dive Planner</h1>
-        <h4>PLEASE DO NOT USE THIS CALCULATOR FOR REAL DIVES AS THIS IS STILL IN DEVELOPMENT AND NEEDS TO BE TESTED</h4>
       </v-row>
-      
+      <v-row justify="center">
+        <h4 class="yellow black--text">PLEASE DO NOT USE THIS CALCULATOR FOR REAL DIVES AS THIS IS STILL IN DEVELOPMENT AND NEEDS TO BE TESTED</h4>
+      </v-row>
       <v-row>
         
         <v-col cols="12" sm="6">
