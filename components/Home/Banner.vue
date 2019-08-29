@@ -1,0 +1,9 @@
+<template>
+  <v-img
+    class="text-xs-center"
+    height="100%"
+    width="100vw"
+    src="https://firebasestorage.googleapis.com/v0/b/jartate-5a7af.appspot.com/o/Recursos%2Fbanner%20github.png?alt=media&token=4b3ab227-c72f-4b8c-bfbd-c7072281f44e"
+  >
+</v-img>
+</template>
