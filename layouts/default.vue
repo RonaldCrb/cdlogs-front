@@ -18,7 +18,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     </v-app-bar>
     <v-content>
-      <v-container>
+      <v-container fluid>
         <nuxt />
       </v-container>
     </v-content>
@@ -71,6 +71,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Smartlogs',
           to: '/smartlogs'
+        },
+        {
+          icon: 'mdi-code-braces',
+          title: 'diving-decompression',
+          to: '/decompression'
         }
       ],
       miniVariant: false,

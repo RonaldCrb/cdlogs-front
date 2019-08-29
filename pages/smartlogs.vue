@@ -1,14 +1,17 @@
 <template>
   <div>
+    <SmartlogDocs />
     <SmartlogsTable />
   </div>
 </template>
 
 <script>
+import SmartlogDocs from '@/components/Smartlogs/SmartlogDocs'
 import SmartlogsTable from '@/components/Smartlogs/SmartlogsTable'
 import SmartlogsForm from '@/components/Smartlogs/SmartlogsForm'
   export default {
     components: {
+      SmartlogDocs,
       SmartlogsTable,
       SmartlogsForm
     },
