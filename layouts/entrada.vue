@@ -1,18 +1,17 @@
 <template>
-  <v-app dark>
+  <v-app dark class="bg">
     <v-app-bar
       clipped-right
       fixed
       app
-      color="secondary"
+      flat
+      color="transparent"
     >
       <v-toolbar-title>
-        <nuxt-link to="/">
-          <v-img
-            class="navbarLogo"
-            src="https://firebasestorage.googleapis.com/v0/b/ron-alonzo.appspot.com/o/cdlogs%2FCDlogs_logo.png?alt=media&token=2dc8704d-3d97-4dae-b9a5-b7f1662c1d5a">
-          </v-img>
-        </nuxt-link>
+        <!-- <v-img
+          class="navbarLogo"
+          src="https://firebasestorage.googleapis.com/v0/b/ron-alonzo.appspot.com/o/cdlogs%2FCDlogs_logo.png?alt=media&token=2dc8704d-3d97-4dae-b9a5-b7f1662c1d5a">
+        </v-img> -->
       </v-toolbar-title>
       <v-spacer />
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
@@ -65,7 +64,7 @@ export default {
         {
           icon: 'mdi-apps',
           title: 'Home',
-          to: '/'
+          to: '/planner'
         },
         {
           icon: 'mdi-chart-bubble',
@@ -85,5 +84,8 @@ export default {
   .navbarLogo {
     height: 100%;
     width: 100px;
+  }
+  .bg {
+    background-color: black;
   }
 </style>
