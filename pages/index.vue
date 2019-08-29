@@ -1,14 +1,14 @@
 <template>
   <div>
-    <DivePlanner />
+    <Parallax />
   </div>
 </template>
 
 <script>
-import DivePlanner from '@/components/Home/DivePlanner'
+import Parallax from '@/components/Home/Parallax'
 export default {
   components: {
-    DivePlanner
+    Parallax,
   }  
 }
 </script>
