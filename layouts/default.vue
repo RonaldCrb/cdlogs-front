@@ -73,6 +73,11 @@ export default {
           to: '/smartlogs'
         },
         {
+          icon: 'mdi-chart-bubble',
+          title: 'Dive Planner',
+          to: '/planner'
+        },
+        {
           icon: 'mdi-code-braces',
           title: 'diving-decompression',
           to: '/decompression'
