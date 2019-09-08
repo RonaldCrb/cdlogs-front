@@ -42,6 +42,7 @@ export default {
   */
   modules: [
     '@nuxtjs/pwa',
+    '@bazzite/nuxt-netlify'
   ],
   /*
   ** vuetify module configuration

@@ -11,6 +11,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@bazzite/nuxt-netlify": "^0.1.1",
     "@nuxtjs/pwa": "^3.0.0-0",
     "axios": "^0.19.0",
     "diving-decompression": "^1.0.4",
