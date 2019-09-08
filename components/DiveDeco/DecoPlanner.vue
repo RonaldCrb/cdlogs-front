@@ -35,14 +35,14 @@
             </v-row>
             <v-row>
               <v-col cols="12">
-                <!-- <v-card color="deep-orange">
+                <v-card color="deep-orange">
                   <p>Time to First Stop: {{ decoProfile.ttfs }}</p>
                   <p>Total Ascent Time (air): {{ decoProfile.airTAT }}</p>
                   <p>Tota Ascent Time (o2): {{ decoProfile.o2TAT }}</p>
                   <p>{{ decoProfile.ttfs }} Chamber Periods for SurDO2</p>
                   <p>Repetitive Group Letter: {{ decoProfile.repetLetter }}</p>
-                  <p v-for="(astop, i) in decoProfile.airDecoStops" :key="i">stop: depth {{ astop.depth }} fsw = time {{ astop.time }}</p>
-                </v-card> -->
+                  <!-- <p v-for="(astop, i) in decoProfile.airDecoStops" :key="i">stop: depth {{ astop.depth }} fsw = time {{ astop.time }}</p> -->
+                </v-card>
               </v-col>
             </v-row>
           </v-card>
@@ -65,13 +65,13 @@ export default {
   },
   computed: {
     
-    // decoProfile() {
-    //   const divePlan = { 
-    //     depth: this.depth, 
-    //     bottomTime: this.bottomTime, 
-    //   }
-    //   return diveDeco(divePlan)
-    // }
+    decoProfile() {
+      const divePlan = { 
+        depth: this.depth, 
+        bottomTime: this.bottomTime, 
+      }
+      return diveDeco(divePlan)
+    }
   },
 }
 </script>
