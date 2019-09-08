@@ -61,9 +61,6 @@ export default {
     return {
       depth: 0,
       bottomTime: 0,
-      sit: 0,
-      nextDepth: 0,
-      nextTime: 0,
     }
   },
   computed: {
@@ -73,12 +70,7 @@ export default {
         depth: this.depth, 
         bottomTime: this.bottomTime, 
       }
-      const result = diveDeco(divePlan)
-      if(!result) {
-        return ''
-      } else {
-        return result
-      }
+      return diveDeco(divePlan)
     }
   },
 }
