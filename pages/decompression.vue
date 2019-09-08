@@ -1,16 +1,16 @@
 <template>
   <div>
-      <v-row>
-        <DiveDecoDocs />
-      </v-row>
-      <v-row>
-        <v-col>
-          <DivePlanner />
-        </v-col>
-        <v-col>
-          <DecoPlanner />
-        </v-col>
-      </v-row>
+    <v-row>
+      <v-col cols="12" md="6">
+        <DivePlanner />
+      </v-col>
+      <v-col cols="12" md="6">
+        <DecoPlanner />
+      </v-col>
+    </v-row>
+    <v-row>
+      <DiveDecoDocs />
+    </v-row>
   </div>
 </template>
 

@@ -34,13 +34,14 @@
               </v-col>
             </v-row>
             <v-row>
-              <v-col cols="6">
+              <v-col cols="12">
                 <v-card color="deep-orange">
-                </v-card>
-              </v-col>
-
-              <v-col cols="6">
-                <v-card color="deep-orange">
+                  <p>Time to First Stop: {{ decoProfile.ttfs }}</p>
+                  <p>Total Ascent Time (air): {{ decoProfile.airTAT }}</p>
+                  <p>Tota Ascent Time (o2): {{ decoProfile.o2TAT }}</p>
+                  <p>{{ decoProfile.ttfs }} Chamber Periods for SurDO2</p>
+                  <p>Repetitive Group Letter: {{ decoProfile.repetLetter }}</p>
+                  <p v-for="(astop, i) in decoProfile.airDecoStops" :key="i">stop: depth {{ astop.depth }} fsw = time {{ astop.time }}</p>
                 </v-card>
               </v-col>
             </v-row>
@@ -54,7 +55,7 @@
 </template>
 
 <script>
-import { noDecompressionLimit, groupLetter, repetLetter, residualNitrogenTime } from 'diving-decompression'
+import { diveDeco } from 'diving-decompression'
 export default {
   data() {
     return {
@@ -66,52 +67,17 @@ export default {
     }
   },
   computed: {
-    ndl() {
-      const dive = { depth: this.depth, bottomTime: this.bottomTime }
-      const result = noDecompressionLimit(dive)
-      if (!result) {
-        return ''
-      } else {
-        return `${result} minutes`
-      }
-    },
-    gl() {
-      const dive = { depth: this.depth, bottomTime: this.bottomTime }
-      const result = groupLetter(dive)
-       if (!result) {
-          return ''
-        } else {
-          return result
-        }
-    },
-    rl() {
+    
+    decoProfile() {
       const divePlan = { 
         depth: this.depth, 
         bottomTime: this.bottomTime, 
-        sit: this.sit, 
-        nextTime: this.nextTime, 
-        nextDepth: this.nextDepth
       }
-        const result = repetLetter(divePlan)
-        if (!result) {
-          return ''
-        } else {
-          return result
-        }
-    },
-    rnt() {
-      const divePlan = { 
-        depth: this.depth, 
-        bottomTime: this.bottomTime, 
-        sit: this.sit, 
-        nextTime: this.nextTime, 
-        nextDepth: this.nextDepth
-      }
-      const result = residualNitrogenTime(divePlan)
+      const result = diveDeco(divePlan)
       if(!result) {
         return ''
       } else {
-        return `${result} minutes`
+        return result
       }
     }
   },
