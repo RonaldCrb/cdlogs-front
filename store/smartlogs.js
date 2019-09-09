@@ -1,7 +1,7 @@
 import Axios from "axios";
 
-const dev = true
-const baseUrl = 'https://guarded-thicket-19709.herokuapp.com/api/v1'
+const dev = false
+const baseUrl = 'https://afternoon-sea-22983.herokuapp.com/api/v1'
 const localUrl = 'http://localhost:3001/api/v1'
 
 const theUrl = dev ? localUrl : baseUrl
