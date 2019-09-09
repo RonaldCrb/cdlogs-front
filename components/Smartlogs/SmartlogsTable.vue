@@ -9,17 +9,17 @@
   >
     <template v-slot:top>
       <v-toolbar flat color="secondary">
-      <v-layout row>
+      <v-row>
       <v-toolbar-title>Smartlogs</v-toolbar-title>
       <v-spacer></v-spacer>
         <SmartlogsForm />
-      </v-layout>
+      </v-row>
     </v-toolbar>
     </template>
     <template v-slot:expanded-item="{ item, headers }">
       <td :colspan="headers.length">
-        <v-layout row wrap>
-          <v-flex xs3>
+        <v-row row wrap>
+          <v-col cols="12" md="3">
             <v-card flat class="pa-2 ma-2" color="secondary">
               <h3>Context</h3>
               <p>diver: {{ item.diver_name }}</p>
@@ -28,8 +28,8 @@
               <p>vessel: {{ item.vessel }}</p>
               <p>breathing_gas: {{ item.breathing_gas }}</p>
             </v-card>
-          </v-flex>
-          <v-flex xs3>
+          </v-col>
+          <v-col cols="12" md="3">
             <v-card flat class="pa-2 ma-2" color="secondary">
               <h3>Dive Profile</h3>
               <p>depth: {{ item.depth }}</p>
@@ -38,15 +38,15 @@
               <p>bottom_time: {{ item.bottom_time }}</p>
               <p>decompression_completed_at: {{ item.decompression_completed_at }}</p>
             </v-card>
-          </v-flex>
-          <v-flex xs3>
+          </v-col>
+          <v-col cols="12" md="3">
             <v-card flat class="pa-2 ma-2" color="secondary">
               <h3>Project Description</h3>
               <p>penetration_diving: {{ item.penetration_diving }}</p>
               <p>work_description: {{ item.work_description }}</p>
             </v-card>
-          </v-flex>
-          <v-flex xs3>
+          </v-col>
+          <v-col cols="12" md="3">
             <v-card flat class="pa-2 ma-2" color="secondary">
               <h3>Weather Conditions</h3>
               <p>sea_state: {{ item.sea_state }}</p>
@@ -54,11 +54,11 @@
               <p>bottom_visibility: {{ item.bottom_visibility }}</p>
               <p>bottom_current: {{ item.bottom_current }}</p>
             </v-card>
-          </v-flex>
-        </v-layout>
-        <v-layout row justify-center>
+          </v-col>
+        </v-row>
+        <v-row justify="center">
           <v-btn color="red" @click="deleteSmartlog(item._id)">Delete Smartlog</v-btn>
-        </v-layout>
+        </v-row>
       </td>
     </template>
   </v-data-table>
