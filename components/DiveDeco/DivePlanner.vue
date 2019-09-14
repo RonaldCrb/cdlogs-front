@@ -4,81 +4,82 @@
       <v-row>
         <v-col cols="12">
           <v-row justify="center">
-            <h2 class="text-xs-center">Dive Planner Air No Deco</h2>
+            <h2 class="ma-2 text-center">Dive Planner Air No Deco / Calculadora de buceo con aire, no descompresion</h2>
           </v-row>
           <v-row justify="center">
-            <h5 class="yellow black--text">PLEASE DO NOT USE THIS CALCULATOR FOR REAL DIVES AS THIS IS STILL IN DEVELOPMENT AND NEEDS TO BE TESTED</h5>
+            <h5 class="ma-3 pa-1 yellow black--text">PLEASE DO NOT USE THIS CALCULATOR FOR REAL DIVES AS THIS IS STILL IN DEVELOPMENT AND NEEDS TO BE TESTED</h5>
+            <h5 class="ma-3 pa-1 yellow black--text">POR FAVOR NO USES ESTA CALCULADORA PARA INMERSIONES REALES, AUN ESTA EN DESARROLLO Y NECESITA SER PROBADA</h5>
           </v-row>
           <v-card color="secondary">
             <v-row>
-              <v-col cols="6">
+              <v-col cols="12" md="6">
                 <v-text-field
                   v-model.number="depth"
                   clearable
                   class="ma-2"
-                  label="Depth"
-                  hint="Depth in Feet of Sea Water"
+                  label="Depth/Profundidad"
+                  hint="Depth in Feet of Sea Water/Profundidad en pies de agua salada"
                   outlined
                 ></v-text-field>
               </v-col>
 
-              <v-col cols="6">
+              <v-col cols="12" md="6">
                 <v-text-field
                   v-model.number="bottomTime"
                   clearable
                   class="ma-2"
-                  label="Bottom Time"
-                  hint="Bottom Time in Minutes (Leave Surface to Leave Bottom)"
+                  label="Bottom Time/Tiempo de fondo"
+                  hint="Bottom Time in Minutes (Leave Surface to Leave Bottom)/Tiempo de fondo en minutos(desde que deja la superficie hasta que deja el fondo)"
                   outlined
                 ></v-text-field>
               </v-col>
             </v-row>
             <v-row>
-              <v-col cols="6">
+              <v-col cols="12" md="6">
                 <v-text-field
                     v-model.number="sit"
                     clearable
                     class="ma-2"
-                    label="Surface Interval Time"
-                    hint="Surface Interval in Minutes"
+                    label="Surface Interval Time/Intervalo de superficie"
+                    hint="Surface Interval in Minutes/Intervalo de superficie en Minutos"
                     outlined
                   ></v-text-field>
                 </v-col>
 
-               <v-col cols="6">
+               <v-col cols="12" md="6">
                 <v-text-field
                   v-model.number="nextDepth"
                   clearable
                   class="ma-2"
-                  label="Second Dive Depth"
-                  hint="Depth in Feet of Sea Water"
+                  label="Second Dive Depth/Profundidad de la segunda inmersion"
+                  hint="Depth in Feet of Sea Water/Profundidad en pies de agua salada"
                   outlined
                 ></v-text-field>
               </v-col>
             </v-row>
             <v-row>
-              <v-col cols="6">
-                <v-card color="deep-orange">
-                  <h3>No Decompression Limit: {{ ndl }}</h3>
+              <v-col cols="12" md="6">
+                <v-card color="deep-orange" class="ma-2 pa-1">
+                  <h3 class="text-center">No Decompression Limit/Limite de no descompresion: {{ ndl }}</h3>
                 </v-card>
               </v-col>
 
-              <v-col cols="6">
-                <v-card color="deep-orange">
-                  <h3>Group Letter: {{ gl }}</h3>
+              <v-col cols="12" md="6">
+                <v-card color="deep-orange" class="ma-2 pa-1">
+                  <h3 class="text-center">Group Letter/Letra de grupo: {{ gl }}</h3>
                 </v-card>
               </v-col>
             </v-row>
             <v-row>
-              <v-col cols="6">
-                <v-card color="deep-orange">
-                  <h3>Repetitive Group Letter: {{ rl }}</h3>
+              <v-col cols="12" md="6">
+                <v-card color="deep-orange" class="ma-2 pa-1">
+                  <h3 class="text-center">Repetitive Group Letter/Letra repetitiva de grupo: {{ rl }}</h3>
                 </v-card>
               </v-col>
 
-              <v-col cols="6">
-                <v-card color="deep-orange">
-                  <h3>Residual Nitrogen Time: {{ rnt }}</h3>
+              <v-col cols="12" md="6">
+                <v-card color="deep-orange" class="ma-2 pa-1">
+                  <h3 class="text-center">Residual Nitrogen Time/Tiempo residual de nitrogeno: {{ rnt }}</h3>
                 </v-card>
               </v-col>
             </v-row>
@@ -110,7 +111,7 @@ export default {
       if (!result) {
         return ''
       } else {
-        return `${result} minutes`
+        return `${result} min`
       }
     },
     gl() {
@@ -149,7 +150,7 @@ export default {
       if(!result) {
         return ''
       } else {
-        return `${result} minutes`
+        return `${result} min`
       }
     }
   },

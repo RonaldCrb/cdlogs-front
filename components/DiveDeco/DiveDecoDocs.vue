@@ -174,7 +174,6 @@ console.log(rnt)
         <v-col cols="12">
           <h1>Road Map Specific Objectives</h1>
           <ol>
-            <li>finish dive tables for decompression diving.</li>
             <li>to develop a series of return objects with the specific guidelines that are relevant to the specific dive profile introduced.</li>
             <li>to develop a series of graphical charts to represent the decompression profiles.</li>
             <li>to develop a series of specific errors and warning objects relevant to the profile introduced.</li>

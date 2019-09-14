@@ -68,7 +68,7 @@ export default {
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-file-account',
           title: 'Smartlogs',
           to: '/smartlogs'
         },
