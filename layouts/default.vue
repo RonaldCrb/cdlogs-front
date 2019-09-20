@@ -16,7 +16,7 @@
       </v-toolbar-title>
       <v-spacer />
       <v-toolbar-items v-if="currentUser">
-        <v-btn disabled class="mx-4">{{ currentUser }}</v-btn>
+        <v-btn disabled class="mx-2">{{ currentUser }}</v-btn>
       </v-toolbar-items>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     </v-app-bar>
@@ -78,10 +78,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-footer
-      :fixed="fixed"
-      app
-    >
+    <v-footer>
     <v-row justify="center">
       <span>Ron Alonzo &copy; 2019</span>
     </v-row>
@@ -95,7 +92,6 @@ export default {
     return {
       clipped: false,
       drawer: false,
-      fixed: false,
       routes: [
         {
           icon: 'mdi-apps',

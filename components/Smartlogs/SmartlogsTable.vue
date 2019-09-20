@@ -9,7 +9,7 @@
     <template v-slot:top>
       <v-toolbar flat color="secondary">
       <v-row>
-      <v-toolbar-title>Smartlogs</v-toolbar-title>
+      <v-toolbar-title class="mx-5">Smartlogs</v-toolbar-title>
       <v-spacer></v-spacer>
         <SmartlogsForm />
       </v-row>

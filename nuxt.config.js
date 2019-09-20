@@ -6,7 +6,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s - ' + 'CDlogs.org',
+    titleTemplate: 'CDlogs.org | Universal Dive Record Registry',
     title: 'CDlogs.org',
     meta: [
       { charset: 'utf-8' },
@@ -20,7 +20,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#243a4e' },
+  loading: { color: '#5fb2d4' },
   /*
   ** Global CSS
   */
