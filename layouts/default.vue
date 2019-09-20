@@ -41,6 +41,30 @@
           </v-list-item-action>
           <v-list-item-title>{{ route.title }}</v-list-item-title>
         </v-list-item>
+        <v-list-item v-if="!currentUser" to="/auth/signup">
+          <v-list-item-action>
+            <v-icon color="accent">
+              mdi-account-plus
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-title>Sign Up</v-list-item-title>
+        </v-list-item>
+        <v-list-item v-if="!currentUser" to="/auth/signin">
+          <v-list-item-action>
+            <v-icon color="accent">
+              mdi-account-key
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-title>Sign In</v-list-item-title>
+        </v-list-item>
+        <v-list-item v-if="currentUser" @click="signOut">
+          <v-list-item-action>
+            <v-icon color="accent">
+              mdi-account-key
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-title>Sign Out</v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-footer
@@ -68,11 +92,6 @@ export default {
           to: '/'
         },
         {
-          icon: 'mdi-file-account',
-          title: 'Smartlogs',
-          to: '/smartlogs'
-        },
-        {
           icon: 'mdi-chart-bubble',
           title: 'Dive Planner',
           to: '/planner'
@@ -81,12 +100,29 @@ export default {
           icon: 'mdi-code-braces',
           title: 'diving-decompression',
           to: '/decompression'
-        }
+        }        
+      ],
+      securedRoutes: [
+        {
+          icon: 'mdi-file-account',
+          title: 'Smartlogs',
+          to: '/smartlogs'
+        },
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
       title: 'Vuetify.js'
+    }
+  },
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.user
+    }
+  },
+  methods: {
+    signOut() {
+      this.$store.dispatch('auth/logout')
     }
   }
 }

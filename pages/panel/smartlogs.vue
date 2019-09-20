@@ -1,6 +1,7 @@
 <template>
   <div>
     <SmartlogDocs />
+    <h3>Welcome {{ this.$store.state.auth.user.email}}</h3>
     <SmartlogsTable />
   </div>
 </template>
@@ -15,6 +16,7 @@ import SmartlogsForm from '@/components/Smartlogs/SmartlogsForm'
       SmartlogsTable,
       SmartlogsForm
     },
+    middleware: ['auth'],
     computed: {
       smartlogs() {
         return this.$store.state.smartlogs.smartlogs
