@@ -3,7 +3,7 @@
   <v-layout row>
     <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
       <template v-slot:activator="{ on }">
-        <v-btn color="accent" dark v-on="on">New Smartlog</v-btn>
+        <v-btn color="accent" class="mr-5" dark v-on="on">New Smartlog</v-btn>
       </template>
       <v-card>
         <v-toolbar dark color="accent">
@@ -13,7 +13,7 @@
           <v-toolbar-title>New Smartlog</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-toolbar-items>
-            <v-btn dark flat @click="dialog = false"  @click.prevent="createSmartlog">Save</v-btn>
+            <v-btn dark text @click="dialog = false"  @click.prevent="createSmartlog">Save</v-btn>
           </v-toolbar-items>
         </v-toolbar>
 

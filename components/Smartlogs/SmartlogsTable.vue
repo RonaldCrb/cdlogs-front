@@ -3,8 +3,7 @@
     :headers="tableHeaders"
     :items="smartlogs"
     :expanded.sync="expanded"
-    :single-expand="singleExpand"
-    item-key="name"
+    item-key="_id"
     show-expand
   >
     <template v-slot:top>

@@ -15,6 +15,9 @@
         </nuxt-link>
       </v-toolbar-title>
       <v-spacer />
+      <v-toolbar-items v-if="currentUser">
+        <v-btn disabled class="mx-4">{{ currentUser }}</v-btn>
+      </v-toolbar-items>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     </v-app-bar>
     <v-content>
@@ -64,6 +67,14 @@
             </v-icon>
           </v-list-item-action>
           <v-list-item-title>Sign Out</v-list-item-title>
+        </v-list-item>
+        <v-list-item v-if="currentUser" to="/panel/smartlogs">
+          <v-list-item-action>
+            <v-icon color="accent">
+              mdi-book-open
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-title>Smartlogs</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -117,7 +128,9 @@ export default {
   },
   computed: {
     currentUser() {
-      return this.$store.state.auth.user
+      if(this.$store.state.auth.user) {
+        return this.$store.state.auth.user.email
+      }
     }
   },
   methods: {

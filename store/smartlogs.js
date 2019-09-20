@@ -1,11 +1,4 @@
-import Axios from "axios";
-
-const dev = false
-const baseUrl = 'https://afternoon-sea-22983.herokuapp.com/api/v1'
-const localUrl = 'http://localhost:3001/api/v1'
-
-const theUrl = dev ? localUrl : baseUrl
-
+import { createSmartlog, deleteSmartlog, getSmartlogs } from '../plugins/server'
 export const state = () => ({
   smartlogs: [],
   tItems: ['Cold, (below 55ºF)', 'Normal, (55ºF to 75ºF)', 'Warm, (above 75ºF)'],
@@ -32,31 +25,36 @@ export const mutations = {
 }
 
 export const actions = {
-  getSmartlogs({ commit }) {
-    commit('resetSmartlogs')
-    Axios.get(`${theUrl}/smartlogs`)
-      .then(smartlogs => {
-        smartlogs.data.forEach(smartlog => {
-          commit('setSmartlogs', smartlog)
-        })
+  async getSmartlogs({ commit }) {
+    try {
+      await commit('resetSmartlogs')
+      const smartlogs = await getSmartlogs()
+      smartlogs.data.forEach(async smartlog => {
+        await commit('setSmartlogs', smartlog)
       })
-      .catch(err => {
-        console.log(err.message)
-      })    
+    } catch (error) {
+      console.log(err.message)
+    }
   },
-  createSmartlog({ dispatch }, smartlog) {
-    Axios.post(`${theUrl}/smartlogs`, smartlog)
-      .then(smartlog => {
-        dispatch('getSmartlogs')
-        alert('Smartlog created succesfully')
-      })
-      .catch(err => {
-        alert(err.message)
-      })  
+  
+  async createSmartlog({ dispatch }, smartlog) {
+    try {
+      await createSmartlog(smartlog)
+      await dispatch('getSmartlogs')
+      await alert('Smartlog created succesfully')
+    } catch (error) {
+      alert(err.message)
+    }
   },
+  
   async deleteSmartlog({ dispatch }, id) {
-    await Axios.delete(`${theUrl}/smartlogs/${id}`)
-    await dispatch('getSmartlogs')
-    await alert(`Deleted Smartlog #${id}`)
+    try {
+      await deleteSmartlog(id)      
+      await dispatch('getSmartlogs')
+      await alert(`Deleted Smartlog #${id}`)
+    } catch (error) {
+      alert(error.message)
+    }
+    
   }
 }

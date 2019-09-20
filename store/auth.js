@@ -74,6 +74,7 @@ export const actions = {
     alert(`Welcome ${loggedUser.data.user.email}`)
   },
   logout({ commit }) {
+    commit('smartlogs/resetSmartlogs', null, { root: true })
     this.$router.push('/')
     commit('clearToken')
     commit('clearUser')
