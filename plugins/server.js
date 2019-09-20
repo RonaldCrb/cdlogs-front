@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import Cookie from 'js-cookie'
 
-const dev = true
+const dev = false
 const prodUrl = 'https://afternoon-sea-22983.herokuapp.com/api/v1'
 const localUrl = 'http://localhost:3001/api/v1'
 const theUrl = dev ? localUrl : prodUrl
