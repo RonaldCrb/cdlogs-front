@@ -1,5 +1,5 @@
 import Cookie from 'js-cookie' // libreria para manejo de cookies
-import { signIn, signUp, verifyAuth } from '../plugins/server'
+import { signIn, signUp, verifyAuth, getUserData } from '../plugins/server'
 // estado de la aplicacion
 export const state = () => ({
   user: null,
@@ -73,6 +73,16 @@ export const actions = {
     Cookie.set('idUser', loggedUser.data.user.id)
     alert(`Welcome ${loggedUser.data.user.email}`)
   },
+
+  async getUserData({ commit }) {
+    try {
+      const userdata = await getUserData()
+      commit('setUser', userdata.data)
+    } catch (err) {
+      alert(err.message)
+    }
+  },
+
   logout({ commit }) {
     commit('smartlogs/resetSmartlogs', null, { root: true })
     this.$router.push('/')

@@ -2,7 +2,7 @@ import Axios from 'axios'
 import Cookie from 'js-cookie'
 
 const dev = false
-const prodUrl = 'https://afternoon-sea-22983.herokuapp.com/api/v1'
+const prodUrl = 'https://webiserver.herokuapp.com/api/v1'
 const localUrl = 'http://localhost:3001/api/v1'
 const theUrl = dev ? localUrl : prodUrl
 
@@ -58,3 +58,41 @@ export const deleteSmartlog = id => {
   }
   return Axios.delete(`${theUrl}/smartlogs/${id}`, axiosConfig)
 }
+
+// userdata Routes
+export const getUserData = () => {
+  token = Cookie.get('idToken')
+  userId = Cookie.get('idUser')
+  let axiosConfig = {
+    headers: {
+      Authorization: "Bearer " + token,
+      UserId: userId
+    }
+  }
+  return Axios.get(`${theUrl}/cdUsers/${userId}`, axiosConfig)
+}
+
+export const createCertification = (certification) => {
+  token = Cookie.get('idToken')
+  userId = Cookie.get('idUser')
+  let axiosConfig = {
+    headers: {
+      Authorization: "Bearer " + token,
+      UserId: userId
+    }
+  }
+  return Axios.put(`${theUrl}/cdUsers/${userId}`, certification, axiosConfig)
+}
+
+export const createContact = (contact) => {
+  token = Cookie.get('idToken')
+  userId = Cookie.get('idUser')
+  let axiosConfig = {
+    headers: {
+      Authorization: "Bearer " + token,
+      UserId: userId
+    }
+  }
+  return Axios.put(`${theUrl}/cdUsers/${userId}`, contact, axiosConfig)
+}
+
