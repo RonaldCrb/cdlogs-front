@@ -72,7 +72,8 @@ export const getUserData = () => {
   return Axios.get(`${theUrl}/cdUsers/${userId}`, axiosConfig)
 }
 
-export const createCertification = (certification) => {
+// Updates user data in database, work with all forms
+export const updateUserData = (certification) => {
   token = Cookie.get('idToken')
   userId = Cookie.get('idUser')
   let axiosConfig = {
@@ -83,16 +84,3 @@ export const createCertification = (certification) => {
   }
   return Axios.put(`${theUrl}/cdUsers/${userId}`, certification, axiosConfig)
 }
-
-export const createContact = (contact) => {
-  token = Cookie.get('idToken')
-  userId = Cookie.get('idUser')
-  let axiosConfig = {
-    headers: {
-      Authorization: "Bearer " + token,
-      UserId: userId
-    }
-  }
-  return Axios.put(`${theUrl}/cdUsers/${userId}`, contact, axiosConfig)
-}
-

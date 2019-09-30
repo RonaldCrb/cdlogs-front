@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import SmartlogsForm from '@/components/Smartlogs/SmartlogsForm'
+import SmartlogsForm from '@/components/Smartlogs/Forms/SmartlogsForm'
   export default {
     components: {
       SmartlogsForm

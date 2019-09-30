@@ -1,4 +1,4 @@
-import { createCertification, createContact, getUserData } from '../plugins/server'
+import { updateUserData, getUserData } from '../plugins/server'
 export const state = () => ({
   certItems: [
     {
@@ -93,9 +93,9 @@ export const state = () => ({
 
 export const actions = {
   
-  async createCertification({ rootState, dispatch }, certification) {
+  async createCertification({ rootState }, certification) {
     try {
-      await createCertification({ certification_details: [certification, ...rootState.auth.user.certification_details] })
+      await updateUserData({ certification_details: [certification, ...rootState.auth.user.certification_details] })
       await alert('Certification created succesfully')
       // await dispatch('auth/getUserData', null, { root: true })
     } catch (err) {
@@ -103,10 +103,20 @@ export const actions = {
     }
   },
 
-  async createContact({ dispatch }, contact) {
+  async createContact(_ctx, contact) {
     try {
-      await createContact({ contact_details: contact })
+      await updateUserData({ contact_details: contact })
       await alert('Contact Details succesfully saved')
+      // await dispatch('auth/getUserData', null, { root: true })
+    } catch (err) {
+      alert(err.message)
+    }
+  },
+
+  async createWork({ rootState }, work) {
+    try {
+      await updateUserData({ work_details: [work, ...rootState.auth.user.work_details] })
+      await alert('Job Details succesfully saved')
       // await dispatch('auth/getUserData', null, { root: true })
     } catch (err) {
       alert(err.message)

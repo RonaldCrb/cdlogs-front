@@ -93,11 +93,15 @@ export default {
       return tbt
     },
     yearsInIndustry() {
-      const workXp = this.currentUser.certification_details
-      const sortedWorkXp = _.sortBy(workXp, 'certified_at', 'desc');
-      const firstCert = moment(sortedWorkXp[0].certification_date, 'YYYY-MM-DD')
-      const currentDate = moment(new Date())
-      return currentDate.diff(firstCert, 'years')
+      if(this.currentUser.certification_details.length) {
+        const workXp = this.currentUser.certification_details
+        const sortedWorkXp = _.sortBy(workXp, 'certified_at', 'desc');
+        const firstCert = moment(sortedWorkXp[0].certification_date, 'YYYY-MM-DD')
+        const currentDate = moment(new Date())
+        return currentDate.diff(firstCert, 'years')
+      } else {
+        return '0 years'
+      }
     },
     companiesWorkedFor() {
       let contractors = []

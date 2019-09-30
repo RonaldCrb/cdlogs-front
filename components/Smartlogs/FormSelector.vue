@@ -9,7 +9,7 @@
           <CertForms />
         </v-col>
         <v-col class="mt-2 pa-2" cols="12" sm="6">
-          <CertForms />
+          <JobForms />
         </v-col>
         <v-col class="mt-2 pa-2" cols="12" sm="6">
           <CertForms />
@@ -20,12 +20,14 @@
 </template>
 
 <script>
-import CertForms from '@/components/Smartlogs/CertForms'
-import ContactForms from '@/components/Smartlogs/ContactForms'
+import JobForms from '@/components/Smartlogs/Forms/JobForms'
+import CertForms from '@/components/Smartlogs/Forms/CertForms'
+import ContactForms from '@/components/Smartlogs/Forms/ContactForms'
 export default {
   components: {
     CertForms,
-    ContactForms
+    ContactForms,
+    JobForms
   }
 }
 </script>

@@ -67,10 +67,10 @@ export const actions = {
     this.$router.push('/panel/smartlogs')
     // guardamos el JWT token y user ID en local storage
     localStorage.setItem('idToken', loggedUser.data.token)
-    localStorage.setItem('idUser', loggedUser.data.user.id)
+    localStorage.setItem('idUser', loggedUser.data.user._id)
     // guardamos JWT token y user ID en cookies
     Cookie.set('idToken', loggedUser.data.token)
-    Cookie.set('idUser', loggedUser.data.user.id)
+    Cookie.set('idUser', loggedUser.data.user._id)
     alert(`Welcome ${loggedUser.data.user.email}`)
   },
 
