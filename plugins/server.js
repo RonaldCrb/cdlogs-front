@@ -1,25 +1,25 @@
 import Axios from 'axios'
 import Cookie from 'js-cookie'
 
-const dev = false
-const prodUrl = 'https://webiserver.herokuapp.com/api/v1'
-const localUrl = 'http://localhost:3001/api/v1'
-const theUrl = dev ? localUrl : prodUrl
+const dockerized = process.env.DOCKERIZED
+const localUrl = 'http://localhost:3001'
+const clusterUrl = 'http://cdlogs-api:3001'
+const theUrl = dockerized ? clusterUrl : localUrl
 
 let token;
 let userId;
 
 // Authentication Routes
 export const signIn = payload => {
-  return Axios.post(`${theUrl}/cdAuth/cdSignIn`, payload)
+  return Axios.post(`${theUrl}/auth/signIn`, payload)
 }
 
 export const signUp = payload => {
-  return Axios.post(`${theUrl}/cdAuth/cdSignUp`, payload)
+  return Axios.post(`${theUrl}/auth/signUp`, payload)
 }
 
 export const verifyAuth = payload => {
-  return Axios.post(`${theUrl}/cdAuth/verifyAuth`, payload)
+  return Axios.post(`${theUrl}/auth/verifyAuth`, payload)
 }
 
 // Smartlogs Routes
@@ -69,7 +69,7 @@ export const getUserData = () => {
       UserId: userId
     }
   }
-  return Axios.get(`${theUrl}/cdUsers/${userId}`, axiosConfig)
+  return Axios.get(`${theUrl}/users/${userId}`, axiosConfig)
 }
 
 // Updates user data in database, work with all forms
@@ -82,5 +82,5 @@ export const updateUserData = (certification) => {
       UserId: userId
     }
   }
-  return Axios.put(`${theUrl}/cdUsers/${userId}`, certification, axiosConfig)
+  return Axios.put(`${theUrl}/users/${userId}`, certification, axiosConfig)
 }
