@@ -1,10 +1,7 @@
 import Axios from 'axios'
 import Cookie from 'js-cookie'
 
-const dockerized = process.env.DOCKERIZED
-const localUrl = 'http://localhost:3001'
-const clusterUrl = 'http://cdlogs-api:3001'
-const theUrl = dockerized ? clusterUrl : localUrl
+const theUrl = process.env.CDLOGS_API_URL || 'http://cdlogs-api:3001'
 
 let token;
 let userId;
