@@ -13,7 +13,7 @@
   "dependencies": {
     "@bazzite/nuxt-netlify": "^0.1.1",
     "@nuxtjs/pwa": "^3.0.0-beta.19",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "diving-decompression": "^1.0.13",
     "js-cookie": "^2.2.1",
     "moment": "^2.24.0",
